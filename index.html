@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Railway Reservation System</title>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body{
+      background:#f2f2f2;
+    }
+
+    header{
+      background:#003366;
+      color:white;
+      padding:20px;
+      text-align:center;
+    }
+
+    nav{
+      background:#0055a5;
+      padding:10px;
+      text-align:center;
+    }
+
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin:15px;
+      font-weight:bold;
+    }
+
+    .container{
+      width:80%;
+      margin:30px auto;
+      background:white;
+      padding:30px;
+      border-radius:10px;
+      box-shadow:0px 0px 10px rgba(0,0,0,0.2);
+    }
+
+    h2{
+      margin-bottom:20px;
+      color:#003366;
+      text-align:center;
+    }
+
+    .form-group{
+      margin-bottom:15px;
+    }
+
+    label{
+      display:block;
+      margin-bottom:5px;
+      font-weight:bold;
+    }
+
+    input, select{
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:5px;
+    }
+
+    button{
+      width:100%;
+      padding:12px;
+      background:#003366;
+      color:white;
+      border:none;
+      border-radius:5px;
+      font-size:16px;
+      cursor:pointer;
+    }
+
+    button:hover{
+      background:#0055a5;
+    }
+
+    .ticket{
+      margin-top:30px;
+      padding:20px;
+      border:2px dashed #003366;
+      display:none;
+      background:#eef5ff;
+    }
+
+    .ticket h3{
+      color:#003366;
+      margin-bottom:15px;
+    }
+
+    footer{
+      background:#003366;
+      color:white;
+      text-align:center;
+      padding:15px;
+      margin-top:30px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Railway Reservation System</h1>
+    <p>Online Train Ticket Booking</p>
+  </header>
+
+  <nav>
+    <a href="#">Home</a>
+    <a href="#">Book Ticket</a>
+    <a href="#">Train Schedule</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <div class="container">
+
+    <h2>Book Your Ticket</h2>
+
+    <form id="reservationForm">
+
+      <div class="form-group">
+        <label>Passenger Name</label>
+        <input type="text" id="name" required>
+      </div>
+
+      <div class="form-group">
+        <label>Age</label>
+        <input type="number" id="age" required>
+      </div>
+
+      <div class="form-group">
+        <label>Gender</label>
+        <select id="gender">
+          <option>Male</option>
+          <option>Female</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label>From</label>
+        <input type="text" id="from" required>
+      </div>
+
+      <div class="form-group">
+        <label>To</label>
+        <input type="text" id="to" required>
+      </div>
+
+      <div class="form-group">
+        <label>Journey Date</label>
+        <input type="date" id="date" required>
+      </div>
+
+      <div class="form-group">
+        <label>Train Class</label>
+        <select id="class">
+          <option>Sleeper</option>
+          <option>AC 3 Tier</option>
+          <option>AC 2 Tier</option>
+          <option>First Class</option>
+        </select>
+      </div>
+
+      <button type="submit">Reserve Ticket</button>
+
+    </form>
+
+    <div class="ticket" id="ticket">
+      <h3>Ticket Confirmed</h3>
+
+      <p><strong>Name:</strong> <span id="tName"></span></p>
+      <p><strong>Age:</strong> <span id="tAge"></span></p>
+      <p><strong>Gender:</strong> <span id="tGender"></span></p>
+      <p><strong>From:</strong> <span id="tFrom"></span></p>
+      <p><strong>To:</strong> <span id="tTo"></span></p>
+      <p><strong>Date:</strong> <span id="tDate"></span></p>
+      <p><strong>Class:</strong> <span id="tClass"></span></p>
+      <p><strong>Status:</strong> Confirmed</p>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Railway Reservation System</p>
+  </footer>
+
+  <script>
+    document.getElementById("reservationForm").addEventListener("submit", function(event){
+
+      event.preventDefault();
+
+      document.getElementById("tName").innerText =
+      document.getElementById("name").value;
+
+      document.getElementById("tAge").innerText =
+      document.getElementById("age").value;
+
+      document.getElementById("tGender").innerText =
+      document.getElementById("gender").value;
+
+      document.getElementById("tFrom").innerText =
+      document.getElementById("from").value;
+
+      document.getElementById("tTo").innerText =
+      document.getElementById("to").value;
+
+      document.getElementById("tDate").innerText =
+      document.getElementById("date").value;
+
+      document.getElementById("tClass").innerText =
+      document.getElementById("class").value;
+
+      document.getElementById("ticket").style.display = "block";
+
+      alert("Ticket Reserved Successfully!");
+    });
+  </script>
+
+</body>
+</html>
